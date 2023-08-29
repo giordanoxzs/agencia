@@ -1,6 +1,7 @@
 package br.com.senai.models;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,4 +17,14 @@ public class Candidato {
     public String nacionalidade;
     public Endereco endereco;
     public List<Escolaridade> escolaridades = new ArrayList<>();
-}
+
+    public int calcularIdade () {
+        return  Period.between(this.dataNascimento,
+            LocalDate.now()).getYears();
+    }
+// Preciso de um metodo para validar o candidato sendo maior de 18
+
+        public String eMaiorDeIdade () {
+         return calcularIdade()>= 18 ? "Sim" : "Não ";
+        }
+    }
