@@ -30,6 +30,10 @@ public class App
         yasmin.nacionalidade = "Brasil";
         yasmin.endereco = endereco;
 
+        Candidato mirelle = new Candidato();
+        mirelle.nomeCompleto = "Mirelle Silva";
+        mirelle.dataNascimento = LocalDate.of(2005, 7, 18);
+
         Escolaridade e1 = new Escolaridade();
         e1.nomeCurso = "Sistema para Internet";
         e1.nomeInstituicao = "Senai";
@@ -42,16 +46,19 @@ public class App
         e2.dataInicio = LocalDate.of(2022, 02, 1);
         e2.dataFim = LocalDate.of(2023, 06, 10);
 
-        List<Escolaridade> list = new ArrayList<>();
-        list.add(e1);
-        list.add(e2);
+        //List<Escolaridade> list = new ArrayList<>();
+        //list.add(e1);
+        //list.add(e2);
 
-        yasmin.escolaridades = list;
+        //yasmin.escolaridades = list;
 
         System.out.println("Nome Completo: "+yasmin.nomeCompleto);
-        System.out.println("Idade: "+ Period.between(yasmin.dataNascimento,
-            LocalDate.now()).getYears());
-        System.out.println("Endereco: "+yasmin.endereco.logradouro);
+        System.out.println("Idade: "+yasmin.calcularIdade());
+        System.out.println("Endereco: "+yasmin.eMaiorDeIdade());
+
+        System.out.println("Nome Completo: "+mirelle.nomeCompleto);
+        System.out.println("Idade: "+mirelle.calcularIdade());
+        System.out.println("É de maior: "+mirelle.eMaiorDeIdade());
 
         for (Escolaridade escolaridade : yasmin.escolaridades) {
             System.out.println(escolaridade.nomeCurso+ " - " +escolaridade.nomeInstituicao);
